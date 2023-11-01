@@ -1,0 +1,29 @@
+﻿<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UserInformation">
+    <table>
+        <tr>
+            <td>First Name: </td>
+            <td><input type="text" id="txtFirstName" name="FirstName" /></td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td><input type="text" id="txtLastName" name="LastName" /></td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type="text" id="txtEmail" name="Email" /></td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td><input type="text" id="txtLastName" name="Password" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+    <hr />
+    @ViewBag.Name
+</form>
+
+
+
