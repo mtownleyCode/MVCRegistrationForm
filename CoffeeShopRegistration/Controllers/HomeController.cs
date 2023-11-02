@@ -1,14 +1,23 @@
 ﻿using CoffeeShopRegistration.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace CoffeeShopRegistration.Controllers
 {
     public class HomeController : Controller
     {
+        public CoffeeShopContext db = new CoffeeShopContext();
         public IActionResult Index()
         {
-            return View();
+            //Technically the db.table syntax return an ienumerable which can just call toList on
+            List<Product> products = db.Products.ToList();
+            return View(products);
+                        
+        }
+
+        public IActionResult ProductDetails(int id)
+        {
+            Product product = db.Products.Find(id);
+            return View(product);
         }
 
         public IActionResult Privacy()
@@ -21,11 +30,7 @@ namespace CoffeeShopRegistration.Controllers
             return View();
         }
 
-        public IActionResult Registration2()
-        {
-            return View();
-        }
-
+     
         [HttpPost]
         public IActionResult UserInformation(User newUser)
         {            

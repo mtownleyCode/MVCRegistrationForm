@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
-
-
-namespace CoffeeShopRegistration.Models
+﻿namespace CoffeeShopRegistration.Models
 {
     public class User
     {           

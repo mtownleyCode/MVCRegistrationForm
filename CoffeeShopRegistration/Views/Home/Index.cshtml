@@ -1,8 +1,62 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Products";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<script language="C#" runat="server">
+
+    void LinkButton_Click(Object sender, EventArgs e)
+    {
+        Label1.Text = "You clicked the link button";
+    }
+
+</script>
+
+<div style="margin-bottom: 30px">
+    <h1 class="display-4">Product List</h1>
 </div>
+
+<div>    
+    <button class="btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Add New Product</button>
+</div>
+
+@foreach(Product product in Model)
+{
+        <div style="margin-bottom:20px;margin-top:20px; border: 3px solid black">
+            <table>
+                <tr>
+                    <td style="width: 150px; padding: 10px">Product ID: </td>
+                    <td>@product.Id</td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; padding: 10px"> Product Name: </td>
+                    <td>@product.ProductName</td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; padding: 10px">Category: </td>
+                    <td>@product.Category</td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; padding: 10px">Description: </td>
+                    <td>@product.Descr</td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; padding-top: 10px; padding-bottom:20px; padding-left:10px">Price: </td>
+                    <td>@product.Price</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+
+                    <a asp-action="ProductDetails" asp-controller="Home" asp-route-Id="@product.Id"><p>View @product.ProductName</p></a>
+                        <input class="btn-primary" style="width: 100px; margin-bottom: 15px; margin-right: 10px" type="submit" value="See Details"/>
+                        <input class="btn-primary" style="width: 100px; margin-bottom: 15px; margin-right: 10px" type="submit" value="Buy" />
+                        <input class="btn-primary" style="width: 100px; margin-bottom: 15px" type="submit" value="Update" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+}
+

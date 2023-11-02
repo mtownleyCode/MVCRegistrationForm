@@ -1,3 +1,5 @@
+using CoffeeShopRegistration.Models;
+
 namespace CoffeeShopRegistration
 {
     public class Program
@@ -8,6 +10,8 @@ namespace CoffeeShopRegistration
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<CoffeeShopContext>();
+
 
             var app = builder.Build();
 

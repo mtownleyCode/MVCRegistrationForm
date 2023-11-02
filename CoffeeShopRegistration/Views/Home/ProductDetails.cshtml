@@ -1,0 +1,28 @@
+﻿<table>
+    @model Product;
+
+    <tr>
+        <td>Product ID: </td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Product Name: </td>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <td>Category: </td>
+        <td>@Model.Category</td>
+    </tr>
+    <tr>
+        <td>Description: </td>
+        <td>@Model.Descr</td>
+    </tr>
+    <tr>
+        <td>Price: </td>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Buy" /></td>
+    </tr>
+</table>
